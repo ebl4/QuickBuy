@@ -10,6 +10,11 @@ namespace QuickBuy.Dominio.Entidades
         public int ProdutoId { get; set; }
         public int Quantidade { get; set; }
 
-
+        public override void Validate()
+        {
+            LimparMensagensValidacao();
+            if (Quantidade <= 0)
+                AdicionarObservacao("Observacao - Item Pedido não pode ficar sem produto");
+        }
     }
 }
