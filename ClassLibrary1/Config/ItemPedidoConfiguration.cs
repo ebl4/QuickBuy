@@ -11,7 +11,7 @@ namespace QuickBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<ItemPedido> builder)
         {
-            builder.HasKey(i => i.Id);
+            builder.HasKey(i => i.ID);
 
             //Builder utiliza o padrão Fluent
             builder

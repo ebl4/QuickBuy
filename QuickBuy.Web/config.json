@@ -1,6 +1,12 @@
 {
   "ConnectionStrings": {
-    "QuickBuyDB": "server=localhost;uid=root;pwd=12345;database=QuickBuyDB"
+    "QuickBuyDB": "server=localhost;uid=root;pwd=12345;database=QuickBuyDB",
+    "QuickBuyDBMSSQL": "Server=(localdb)\\mssqllocaldb;Database=QuickBuyDB;Trusted_Connection=True"
+  },
+  "Okta": {
+    "ClientId": "{0oawvb9uD73BnolFS4x5}",
+    "ClientSecret": "{mw1fDglHxinA4gjrqvUiv2zulrsB18V252a5Iy83}",
+    "OktaDomain": "https://{dev-392760.okta.com}"
   }
 }
 

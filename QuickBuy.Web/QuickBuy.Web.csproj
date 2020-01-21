@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Pomelo.JsonObject" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
+    <None Remove="ClientApp\src\app\modelo\Produto.ts" />
+    <None Remove="ClientApp\src\app\produto\pesquisa\pesquisa.produto.component.ts" />
+    <None Remove="ClientApp\src\app\produto\produto.component.ts" />
+    <None Remove="ClientApp\src\app\produto\StyleSheet.css" />
+    <None Remove="ClientApp\src\app\servicos\produto.servico.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -36,6 +46,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\QuickBuy.Repositorio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\modelo\produto.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\produto\pesquisa\pesquisa.produto.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\produto\produto.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\servicos\produto.servico.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\arquivos\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
@@ -65,6 +87,6 @@
     </ItemGroup>
   </Target>
 
-  <ProjectExtensions><VisualStudio><UserProperties config_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties config_1json__JsonSchema="http://json.schemastore.org/appsettings" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -10,10 +10,14 @@ namespace QuickBuy.Dominio.Entidades
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public decimal Preco { get; set; }
+        public string NomeArquivo { get; set; }
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Nome))
+                AdicionarObservacao("Nome do produto não foi informado");
+            if (string.IsNullOrEmpty(Descricao))
+                AdicionarObservacao("Descrição do produto não foi informada");
         }
     }
 }
