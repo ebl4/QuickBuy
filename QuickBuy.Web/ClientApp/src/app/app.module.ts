@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { TruncateModule } from 'ng2-truncate';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -13,6 +13,7 @@ import { ProdutoComponent } from './produto/produto.component';
 import { ProdutoServico } from './servicos/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
+import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
 
 @NgModule({
     declarations: [
@@ -23,18 +24,21 @@ import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
         FetchDataComponent,
         ProdutoComponent,
         PesquisaProdutoComponent,
-        LojaPesquisaComponent
+        LojaPesquisaComponent,
+        LojaProdutoComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         HttpClientModule,
         FormsModule,
+        TruncateModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'produto', component: ProdutoComponent },
-            { path: 'pesquisar-produto', component: PesquisaProdutoComponent}
+            { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
+            { path: 'loja-produto', component: LojaProdutoComponent }
         ])
     ],
     providers: [ProdutoServico],

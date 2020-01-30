@@ -15,7 +15,7 @@ export class LojaPesquisaComponent implements OnInit{
 
     }
 
-    constructor(private produtoServico: ProdutoServico) {
+    constructor(private produtoServico: ProdutoServico, private router: Router) {
         this.produtoServico.obterTodosProdutos()
             .subscribe(
                 produtos => {
@@ -25,6 +25,10 @@ export class LojaPesquisaComponent implements OnInit{
                     console.log(e.error);
                 }
             )
+    }
+
+    public abrirProduto(produto: Produto) {
+        sessionStorage.setItem("produtoDetalhe", JSON.stringify(produto));
     }
 
 }
