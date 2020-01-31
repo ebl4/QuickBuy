@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Produto } from "../../modelo/Produto";
 import { ProdutoServico } from "../../servicos/produto.servico";
+import { Router } from "@angular/router"
 
 @Component({
     selector: "app-loja",
@@ -12,7 +13,7 @@ export class LojaPesquisaComponent implements OnInit{
     public produtos: Produto[];
 
     ngOnInit(): void {
-
+        
     }
 
     constructor(private produtoServico: ProdutoServico, private router: Router) {
@@ -29,6 +30,7 @@ export class LojaPesquisaComponent implements OnInit{
 
     public abrirProduto(produto: Produto) {
         sessionStorage.setItem("produtoDetalhe", JSON.stringify(produto));
+        this.router.navigate(['/loja-produto']);
     }
 
 }

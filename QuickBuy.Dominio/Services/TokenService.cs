@@ -7,7 +7,7 @@ using System.Text;
 
 namespace QuickBuy.Dominio.Services
 {
-    class TokenService
+    public static class TokenService
     {
         public static string GenerateToken(Usuario usuario) 
         {
@@ -16,7 +16,7 @@ namespace QuickBuy.Dominio.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[] {
-                    new Claim(ClaimTypes.Email, usuario.Email)
+                    new Claim(ClaimTypes.Name, usuario.Nome)
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

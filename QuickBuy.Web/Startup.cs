@@ -55,10 +55,11 @@ namespace QuickBuy.Web
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             var connectionString = Configuration.GetConnectionString("QuickBuyDB");
-            services.AddDbContext<QuickBuyContexto>(option => option.UseLazyLoadingProxies().UseSqlServer(connectionString, 
+            services.AddDbContext<QuickBuyContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, 
                                                                             m => m.MigrationsAssembly("QuickBuy.Repositorio")));
 
-            //Adding scope implementation to Repository interfaces
+            //Adding implementation scope to Repository interfaces
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
 
             // In production, the Angular files will be served from this directory
@@ -86,15 +87,15 @@ namespace QuickBuy.Web
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+            //Set up Authentication
+            app.UseAuthentication();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
-
-            //Set up Authentication
-            app.UseAuthentication();
 
             app.UseSpa(spa =>
             {
