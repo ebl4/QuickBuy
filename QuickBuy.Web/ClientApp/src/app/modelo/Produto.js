@@ -6,4 +6,4 @@ var Produto = /** @class */ (function () {
     return Produto;
 }());
 exports.Produto = Produto;
-//# sourceMappingURL=produto.js.map
+//# sourceMappingURL=Produto.js.map

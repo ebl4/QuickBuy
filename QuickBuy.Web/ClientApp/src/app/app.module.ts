@@ -14,6 +14,8 @@ import { ProdutoServico } from './servicos/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
+import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
+import { GuardaRotas } from './autorizacao/guarda.rotas';
 
 @NgModule({
     declarations: [
@@ -25,7 +27,8 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
         ProdutoComponent,
         PesquisaProdutoComponent,
         LojaPesquisaComponent,
-        LojaProdutoComponent
+        LojaProdutoComponent,
+        LojaEfetivarComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,9 +39,10 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'produto', component: ProdutoComponent },
+            { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
             { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
-            { path: 'loja-produto', component: LojaProdutoComponent }
+            { path: 'loja-produto', component: LojaProdutoComponent },
+            { path: 'loja-efetivar', component: LojaEfetivarComponent, canActivate: [GuardaRotas] }
         ])
     ],
     providers: [ProdutoServico],

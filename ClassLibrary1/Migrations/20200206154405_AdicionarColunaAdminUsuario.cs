@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickBuy.Repositorio.Migrations
 {
-    public partial class Inital : Migration
+    public partial class AdicionarColunaAdminUsuario : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace QuickBuy.Repositorio.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(maxLength: 50, nullable: false),
                     Descricao = table.Column<string>(maxLength: 100, nullable: false)
                 },
@@ -27,7 +27,7 @@ namespace QuickBuy.Repositorio.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(maxLength: 50, nullable: false),
                     Descricao = table.Column<string>(maxLength: 400, nullable: false),
                     Preco = table.Column<decimal>(type: "decimal(19,4)", nullable: false),
@@ -43,11 +43,12 @@ namespace QuickBuy.Repositorio.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(maxLength: 50, nullable: false),
                     Sobrenome = table.Column<string>(maxLength: 50, nullable: false),
                     Email = table.Column<string>(maxLength: 50, nullable: false),
-                    Senha = table.Column<string>(maxLength: 400, nullable: false)
+                    Senha = table.Column<string>(maxLength: 400, nullable: false),
+                    EhAdministrador = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,7 +60,7 @@ namespace QuickBuy.Repositorio.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     DataPedido = table.Column<DateTime>(nullable: false),
                     UsuarioId = table.Column<int>(nullable: false),
                     DataPrevisaoEntrega = table.Column<DateTime>(nullable: false),
@@ -92,7 +93,7 @@ namespace QuickBuy.Repositorio.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ProdutoId = table.Column<int>(nullable: false),
                     Quantidade = table.Column<int>(nullable: false),
                     PedidoId = table.Column<int>(nullable: true)

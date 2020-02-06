@@ -1,18 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LojaCarrinhoCompra } from '../loja/carrinho-compra/loja.carrinho.compra';
 
 @Component({
-  selector: 'app-nav-menu',
-  templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.css']
+    selector: 'app-nav-menu',
+    templateUrl: './nav-menu.component.html',
+    styleUrls: ['./nav-menu.component.css']
 })
-export class NavMenuComponent {
-  isExpanded = false;
+export class NavMenuComponent implements OnInit {
 
-  collapse() {
-    this.isExpanded = false;
-  }
+    ngOnInit(): void {
+        this.carrinhoCompra = new LojaCarrinhoCompra();
+    }
 
-  toggle() {
-    this.isExpanded = !this.isExpanded;
-  }
+    isExpanded = false;
+    public carrinhoCompra: LojaCarrinhoCompra;
+
+    collapse() {
+        this.isExpanded = false;
+    }
+
+    toggle() {
+        this.isExpanded = !this.isExpanded;
+    }
+
+    public temItensCarrinhoCompra() {
+        return this.carrinhoCompra.temItensCarrinhoCompra();
+    }
 }
