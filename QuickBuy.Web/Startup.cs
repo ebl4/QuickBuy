@@ -50,7 +50,8 @@ namespace QuickBuy.Web
                     };
                 });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             //Defining access to request context
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
