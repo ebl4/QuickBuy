@@ -9,13 +9,13 @@ var LojaCarrinhoCompra = /** @class */ (function () {
         if (!produtoLocalStorage) {
             // se não existir nada no localStorage, atualiza a lista e insere o produto no localStorage
             this.produtos.push(produto);
-            localStorage.setItem("produtoLocalStorage", JSON.stringify(this.produtos));
         }
         else {
+            // se ja existir pelo menos um unico item armazenado na sessao(localLocalStorage)
             this.produtos = JSON.parse(produtoLocalStorage);
             this.produtos.push(produto);
-            localStorage.setItem("produtoLocalStorage", JSON.stringify(this.produtos));
         }
+        localStorage.setItem("produtoLocalStorage", JSON.stringify(this.produtos));
     };
     LojaCarrinhoCompra.prototype.obterProdutos = function () {
         var produtoLocalStorage = localStorage.getItem("produtoLocalStorage");
@@ -35,7 +35,11 @@ var LojaCarrinhoCompra = /** @class */ (function () {
         localStorage.setItem("produtoLocalStorage", JSON.stringify(produtos));
     };
     LojaCarrinhoCompra.prototype.temItensCarrinhoCompra = function () {
-        return this.obterProdutos().length > 0;
+        var itens = this.obterProdutos();
+        return (itens.length > 0);
+    };
+    LojaCarrinhoCompra.prototype.limparCarrinhoCompras = function () {
+        localStorage.setItem("produtoLocalStorage", "");
     };
     return LojaCarrinhoCompra;
 }());

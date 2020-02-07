@@ -4,6 +4,9 @@ import { Router } from "@angular/router";
 import { LojaCarrinhoCompra } from "../carrinho-compra/loja.carrinho.compra";
 import { Produto } from "../../modelo/Produto";
 import { Pedido } from "../../modelo/Pedido";
+import { UsuarioServico } from "../../servicos/usuario.servico";
+import { ItemPedido } from "../../modelo/itemPedido";
+import { PedidoServico } from "../../servicos/pedido/pedido.servico";
 
 @Component({
     selector: "loja-efetivar",
@@ -19,6 +22,10 @@ export class LojaEfetivarComponent implements OnInit{
     ngOnInit(): void {
         this.carrinhoCompras = new LojaCarrinhoCompra();
         this.produtos = this.carrinhoCompras.obterProdutos();
+    }
+
+    constructor(private usuarioServico: UsuarioServico, private pedidoServico: PedidoServico, private router: Router) {
+
     }
 
     public atualizarPreco(produto: Produto, quantidade: number) {
@@ -47,6 +54,44 @@ export class LojaEfetivarComponent implements OnInit{
     }
 
     public efetivarCompra() {
+        console.log("teste");
+        this.pedidoServico.efetivarCompra(this.criarPedido())
+            .subscribe(
+                pedidoId => {
+                    console.log(pedidoId);
+                    sessionStorage.setItem("pedidoId", pedidoId.toString());
+                    this.produtos = [];
+                    this.carrinhoCompras.limparCarrinhoCompras();
+                    this.router.navigate(["/compra-realizada-sucesso"]);
+                },
+                e => {
+                    console.log(e.error);
+                },
+            );
+    }
+
+    public criarPedido(): Pedido {
         let pedido = new Pedido();
+        pedido.usuarioId = 1;
+        pedido.cep = "30130131";
+        pedido.cidade = "Belo Horizonte";
+        pedido.estado = "Minas Gerais";
+        pedido.dataPrevisaoEntrega = new Date();
+        pedido.formaPagamentoId = 1;
+        pedido.numeroEndereco = "1325";
+        pedido.enderecoCompleto = "Rua Teste 1";
+
+        this.produtos = this.carrinhoCompras.obterProdutos();
+        for (let produto of this.produtos) {
+            let itemPedido = new ItemPedido();
+            itemPedido.produtoId = produto.id;
+            if (!itemPedido.quantidade)
+                itemPedido.quantidade = 1;
+            itemPedido.quantidade = produto.quantidade;
+
+            pedido.itemPedido.push(itemPedido);
+        }
+
+        return pedido;
     }
 }
