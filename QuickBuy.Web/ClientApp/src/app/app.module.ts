@@ -19,38 +19,41 @@ import { GuardaRotas } from './autorizacao/guarda.rotas';
 import { UsuarioServico } from './servicos/usuario.servico';
 import { PedidoServico } from './servicos/pedido/pedido.servico';
 import { LojaCompraRealizadaComponent } from './loja/efetivar/loja.compra.realizada.component';
+import { LoginComponent } from './usuario/login/login.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        NavMenuComponent,
-        HomeComponent,
-        CounterComponent,
-        FetchDataComponent,
-        ProdutoComponent,
-        PesquisaProdutoComponent,
-        LojaPesquisaComponent,
-        LojaProdutoComponent,
-        LojaEfetivarComponent,
-        LojaCompraRealizadaComponent
-    ],
-    imports: [
-        BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-        HttpClientModule,
-        FormsModule,
-        TruncateModule,
-        RouterModule.forRoot([
-            { path: '', component: HomeComponent, pathMatch: 'full' },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'produto', component: ProdutoComponent },
-            { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
-            { path: 'loja-produto', component: LojaProdutoComponent },
-            { path: 'loja-efetivar', component: LojaEfetivarComponent },
-            { path: 'compra-realizada-sucesso', component: LojaCompraRealizadaComponent }
-        ])
-    ],
-    providers: [ProdutoServico, UsuarioServico, PedidoServico],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    NavMenuComponent,
+    HomeComponent,
+    CounterComponent,
+    FetchDataComponent,
+    ProdutoComponent,
+    LoginComponent,
+    PesquisaProdutoComponent,
+    LojaPesquisaComponent,
+    LojaProdutoComponent,
+    LojaEfetivarComponent,
+    LojaCompraRealizadaComponent
+  ],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    HttpClientModule,
+    FormsModule,
+    TruncateModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'counter', component: CounterComponent },
+      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'produto', component: ProdutoComponent },
+      { path: 'entrar', component: LoginComponent },
+      { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
+      { path: 'loja-produto', component: LojaProdutoComponent },
+      { path: 'loja-efetivar', component: LojaEfetivarComponent },
+      { path: 'compra-realizada-sucesso', component: LojaCompraRealizadaComponent }
+    ])
+  ],
+  providers: [ProdutoServico, UsuarioServico, PedidoServico],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

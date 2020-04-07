@@ -20,6 +20,9 @@
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
             <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]'>Produto</a>
           </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/entrar"]'>Login</a>
+          </li>
           <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="temItensCarrinhoCompra()">
             <a class="nav-link text-dark" [routerLink]='["/loja-efetivar"]'>
               <img src="assets/img/shopping-06-512.png" style="width:32px;height:32px" />

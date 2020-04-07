@@ -13,6 +13,7 @@ using QuickBuy.Repositorio.Contexto;
 using QuickBuy.Repositorio.Repositorios;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 namespace QuickBuy.Web
 {

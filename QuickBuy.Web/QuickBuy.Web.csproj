@@ -50,6 +50,7 @@
     <None Remove="ClientApp\src\app\servicos\pedido\pedido.servico.ts" />
     <None Remove="ClientApp\src\app\servicos\produto.servico.ts" />
     <None Remove="ClientApp\src\app\servicos\usuario.servico.ts" />
+    <None Remove="ClientApp\src\app\usuario\login\login.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,9 +79,11 @@
     <TypeScriptCompile Include="ClientApp\src\app\servicos\pedido\pedido.servico.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\servicos\produto.servico.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\servicos\usuario.servico.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\usuario\login\login.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\usuario\cadastro\" />
     <Folder Include="wwwroot\arquivos\" />
   </ItemGroup>
 
