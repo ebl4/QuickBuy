@@ -66,8 +66,10 @@ namespace QuickBuy.Web.Controllers
         {
             try
             {
-                if(usuario.Email == "edbdelima@gmail.com" && usuario.Senha == "123")
-                    return Ok(usuario);
+                var usuarioRetorno = _usuarioRepositorio.Obter(usuario.Email, usuario.Senha);
+
+                if(usuarioRetorno != null)
+                    return Ok(usuarioRetorno);
 
                 return BadRequest("Usuario ou senha inválido");
             }

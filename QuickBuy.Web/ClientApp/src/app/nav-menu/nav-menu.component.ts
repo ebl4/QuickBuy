@@ -30,7 +30,7 @@ export class NavMenuComponent implements OnInit {
   }
 
   public usuarioLogado(): boolean {
-    return sessionStorage.getItem("usuario-autenticado") == "1";
+    return this.usuarioServico.usuarioAutenticado();
   }
 
   public temItensCarrinhoCompra() {
@@ -38,7 +38,7 @@ export class NavMenuComponent implements OnInit {
   }
 
   sair() {
-    sessionStorage.setItem("usuario-autenticado", "");
+    this.usuarioServico.limparSessao();
     this.router.navigate(['/']);
   }
 }
