@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core"
-import { ProdutoServico } from "../../servicos/produto.servico";
 import { Produto } from "../../modelo/Produto";
 import { LojaCarrinhoCompra } from "../carrinho-compra/loja.carrinho.compra";
 import { Router } from "@angular/router";
+import { ProdutoServico } from "../../servicos/produto/produto.servico";
 
 @Component({
     selector: "loja-app-produto",

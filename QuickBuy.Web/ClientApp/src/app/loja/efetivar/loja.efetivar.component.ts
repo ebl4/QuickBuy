@@ -1,12 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { ProdutoServico } from "../../servicos/produto.servico";
 import { Router } from "@angular/router";
 import { LojaCarrinhoCompra } from "../carrinho-compra/loja.carrinho.compra";
 import { Produto } from "../../modelo/Produto";
 import { Pedido } from "../../modelo/Pedido";
-import { UsuarioServico } from "../../servicos/usuario.servico";
 import { ItemPedido } from "../../modelo/itemPedido";
 import { PedidoServico } from "../../servicos/pedido/pedido.servico";
+import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
 
 @Component({
     selector: "loja-efetivar",

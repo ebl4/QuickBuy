@@ -10,16 +10,16 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProdutoComponent } from './produto/produto.component';
-import { ProdutoServico } from './servicos/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
 import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
 import { GuardaRotas } from './autorizacao/guarda.rotas';
-import { UsuarioServico } from './servicos/usuario.servico';
 import { PedidoServico } from './servicos/pedido/pedido.servico';
 import { LojaCompraRealizadaComponent } from './loja/efetivar/loja.compra.realizada.component';
 import { LoginComponent } from './usuario/login/login.component';
+import { UsuarioServico } from './servicos/usuario/usuario.servico';
+import { ProdutoServico } from './servicos/produto/produto.servico';
 
 @NgModule({
   declarations: [
@@ -45,9 +45,9 @@ import { LoginComponent } from './usuario/login/login.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'produto', component: ProdutoComponent },
+      { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'entrar', component: LoginComponent },
-      { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
+      { path: 'pesquisar-produto', component: PesquisaProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'loja-produto', component: LojaProdutoComponent },
       { path: 'loja-efetivar', component: LojaEfetivarComponent },
       { path: 'compra-realizada-sucesso', component: LojaCompraRealizadaComponent }

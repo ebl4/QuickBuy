@@ -1,29 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { LojaCarrinhoCompra } from '../loja/carrinho-compra/loja.carrinho.compra';
+import { Router } from '@angular/router';
+import { UsuarioServico } from '../servicos/usuario/usuario.servico';
 
 @Component({
-    selector: 'app-nav-menu',
-    templateUrl: './nav-menu.component.html',
-    styleUrls: ['./nav-menu.component.css']
+  selector: 'app-nav-menu',
+  templateUrl: './nav-menu.component.html',
+  styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent implements OnInit {
 
-    ngOnInit(): void {
-        this.carrinhoCompra = new LojaCarrinhoCompra();
-    }
+  constructor(private router: Router, private usuarioServico: UsuarioServico) {
 
-    isExpanded = false;
-    public carrinhoCompra: LojaCarrinhoCompra;
+  }
 
-    collapse() {
-        this.isExpanded = false;
-    }
+  ngOnInit(): void {
+    this.carrinhoCompra = new LojaCarrinhoCompra();
+  }
 
-    toggle() {
-        this.isExpanded = !this.isExpanded;
-    }
+  isExpanded = false;
+  public carrinhoCompra: LojaCarrinhoCompra;
 
-    public temItensCarrinhoCompra() {
-        return this.carrinhoCompra.temItensCarrinhoCompra();
-    }
+  collapse() {
+    this.isExpanded = false;
+  }
+
+  toggle() {
+    this.isExpanded = !this.isExpanded;
+  }
+
+  public usuarioLogado(): boolean {
+    return sessionStorage.getItem("usuario-autenticado") == "1";
+  }
+
+  public temItensCarrinhoCompra() {
+    return this.carrinhoCompra.temItensCarrinhoCompra();
+  }
+
+  sair() {
+    sessionStorage.setItem("usuario-autenticado", "");
+    this.router.navigate(['/']);
+  }
 }

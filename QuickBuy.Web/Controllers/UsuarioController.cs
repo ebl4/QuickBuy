@@ -60,5 +60,22 @@ namespace QuickBuy.Web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+
+        [HttpPost("VerificarUsuario")]
+        public IActionResult VerificarUsuario([FromBody] Usuario usuario)
+        {
+            try
+            {
+                if(usuario.Email == "edbdelima@gmail.com" && usuario.Senha == "123")
+                    return Ok(usuario);
+
+                return BadRequest("Usuario ou senha inválido");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
     }
 }
