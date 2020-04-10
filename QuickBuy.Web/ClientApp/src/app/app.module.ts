@@ -20,6 +20,7 @@ import { LojaCompraRealizadaComponent } from './loja/efetivar/loja.compra.realiz
 import { LoginComponent } from './usuario/login/login.component';
 import { UsuarioServico } from './servicos/usuario/usuario.servico';
 import { ProdutoServico } from './servicos/produto/produto.servico';
+import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
     FetchDataComponent,
     ProdutoComponent,
     LoginComponent,
+    CadastroUsuarioComponent,
     PesquisaProdutoComponent,
     LojaPesquisaComponent,
     LojaProdutoComponent,
@@ -47,6 +49,7 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'entrar', component: LoginComponent },
+      { path: 'novo-usuario', component: CadastroUsuarioComponent },
       { path: 'pesquisar-produto', component: PesquisaProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'loja-produto', component: LojaProdutoComponent },
       { path: 'loja-efetivar', component: LojaEfetivarComponent },
