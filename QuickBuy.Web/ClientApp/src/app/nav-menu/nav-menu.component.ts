@@ -41,4 +41,8 @@ export class NavMenuComponent implements OnInit {
     this.usuarioServico.limparSessao();
     this.router.navigate(['/']);
   }
+
+  get usuario() {
+    return this.usuarioServico.usuario;
+  }
 }

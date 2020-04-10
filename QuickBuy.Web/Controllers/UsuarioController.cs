@@ -40,20 +40,12 @@ namespace QuickBuy.Web.Controllers
         {
             try
             {
-                usuario.Validate();
-                if (!usuario.EhValido)
-                {
-                    return BadRequest(usuario.ObterMensagensValidacao());
-                }
-                if (usuario.Id > 0)
-                {
-                    _usuarioRepositorio.Atualizar(usuario);
-                }
-                else
-                {
-                    _usuarioRepositorio.Adicionar(usuario);
-                }
-                return Created("api/usuario", usuario);
+                var usuarioCadastrado = _usuarioRepositorio.Obter(usuario.Email);
+                if(usuarioCadastrado != null)
+                    return BadRequest("Usuario já cadastrado no sistema");
+
+                _usuarioRepositorio.Adicionar(usuario);
+                return Ok();
             }
             catch (Exception ex)
             {

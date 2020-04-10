@@ -56,10 +56,13 @@
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
       Cadastrar
     </button>
-    <div><a [routerLink]='["/entrar"]'>Voltar</a></div>
     <div class="alert alert-danger" *ngIf="mensagem">
       {{mensagem}}
     </div>
+    <div class="alert alert-success" *ngIf="usuarioCadastrado">
+      Usuario cadastrado com sucesso <a class="alert-link" [routerLink]='["/entrar"]'>Clique aqui</a> para entrar no sistema
+    </div>
+    <div><a [routerLink]='["/entrar"]'>Voltar</a></div>
     <img src="..\\assets\\img\\quick-b-logo.jpg" />
   </form>
 </div>
