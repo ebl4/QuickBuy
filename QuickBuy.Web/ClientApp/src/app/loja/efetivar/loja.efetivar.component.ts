@@ -42,7 +42,7 @@ export class LojaEfetivarComponent implements OnInit {
     this.atualizarTotal();
   }
 
-  public remover(i, produto : Produto) {
+  public remover(i, produto: Produto) {
     this.carrinhoCompras.removerProduto(produto);
     this.carrinhoCompras.obterProdutos();
     this.produtos.splice(i, 1);
@@ -56,19 +56,24 @@ export class LojaEfetivarComponent implements OnInit {
 
   public efetivarCompra() {
     console.log("teste");
-    this.pedidoServico.efetivarCompra(this.criarPedido())
-      .subscribe(
-        pedidoId => {
-          console.log(pedidoId);
-          sessionStorage.setItem("pedidoId", pedidoId.toString());
-          this.produtos = [];
-          this.carrinhoCompras.limparCarrinhoCompras();
-          this.router.navigate(["/compra-realizada-sucesso"]);
-        },
-        e => {
-          console.log(e.error);
-        },
-      );
+    if (this.usuarioServico.usuarioAutenticado()) {
+      this.pedidoServico.efetivarCompra(this.criarPedido())
+        .subscribe(
+          pedidoId => {
+            console.log(pedidoId);
+            sessionStorage.setItem("pedidoId", pedidoId.toString());
+            this.produtos = [];
+            this.carrinhoCompras.limparCarrinhoCompras();
+            this.router.navigate(["/compra-realizada-sucesso"]);
+          },
+          e => {
+            console.log(e.error);
+          },
+        );
+    }
+    else {
+      alert("Por favor entre na sua conta para efetuar a compra.")
+    }
   }
 
   public criarPedido(): Pedido {
@@ -86,8 +91,9 @@ export class LojaEfetivarComponent implements OnInit {
     for (let produto of this.produtos) {
       let itemPedido = new ItemPedido();
       itemPedido.produtoId = produto.id;
-      if (!itemPedido.quantidade)
+      if (!itemPedido.quantidade) {
         itemPedido.quantidade = 1;
+      }
       itemPedido.quantidade = produto.quantidade;
 
       pedido.itemPedido.push(itemPedido);
