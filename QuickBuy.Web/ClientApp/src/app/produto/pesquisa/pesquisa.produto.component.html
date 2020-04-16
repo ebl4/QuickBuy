@@ -17,8 +17,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let p of produtos">
-      <td>{{p.nome}}</td>
-      <td style="width:50%">{{p.descricao}}</td>
+      <td style="width:10%">{{p.nome}}</td>
+      <td style="width:40%">{{p.descricao}}</td>
       <td style="width:10%">R$ {{p.preco}}</td>
       <td><img src="../../../../../arquivos/{{p.nomeArquivo}}" style="width:40%;height=10%" /></td>
       <td><button class="btn btn-success btn-sm" (click)="editarProduto(p)">Editar</button></td>

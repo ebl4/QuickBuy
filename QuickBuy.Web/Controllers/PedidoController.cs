@@ -14,6 +14,18 @@ namespace QuickBuy.Web.Controllers
             this._pedidoRepositorio = pedidoRepositorio;
         }
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var usuariosCadastrados = _pedidoRepositorio.ObterTodos();
+            if(usuariosCadastrados == null)
+            {
+                return BadRequest("Usuarios não cadastrados");
+                
+            }
+            return Json(usuariosCadastrados);
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] Pedido pedido)
         {
