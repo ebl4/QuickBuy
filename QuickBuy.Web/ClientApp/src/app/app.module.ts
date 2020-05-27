@@ -1,3 +1,5 @@
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +23,7 @@ import { LoginComponent } from './usuario/login/login.component';
 import { UsuarioServico } from './servicos/usuario/usuario.servico';
 import { ProdutoServico } from './servicos/produto/produto.servico';
 import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
+
 
 @NgModule({
   declarations: [
@@ -60,3 +63,4 @@ import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.co
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+registerLocaleData(localePt);

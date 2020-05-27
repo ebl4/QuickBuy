@@ -19,7 +19,7 @@
     <tr *ngFor="let p of produtos">
       <td style="width:10%">{{p.nome}}</td>
       <td style="width:40%">{{p.descricao}}</td>
-      <td style="width:10%">R$ {{p.preco}}</td>
+      <td style="width:10%">{{p.preco | currency:'BRL':'symbol':'0.2':'pt'}}</td>
       <td><img src="../../../../../arquivos/{{p.nomeArquivo}}" style="width:40%;height=10%" /></td>
       <td><button class="btn btn-success btn-sm" (click)="editarProduto(p)">Editar</button></td>
       <td><button class="btn btn-danger btn-sm" (click)="excluirProduto(p)">Excluir</button></td>

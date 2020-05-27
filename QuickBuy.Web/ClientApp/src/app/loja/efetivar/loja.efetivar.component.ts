@@ -56,7 +56,7 @@ export class LojaEfetivarComponent implements OnInit {
 
   public efetivarCompra() {
     console.log("teste");
-    if (this.usuarioServico.usuarioAutenticado()) {
+    if (this.usuarioServico.usuarioAutenticado() && this.produtos.length > 0) {
       this.pedidoServico.efetivarCompra(this.criarPedido())
         .subscribe(
           pedidoId => {
