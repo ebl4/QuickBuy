@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200206154405_AdicionarColunaAdminUsuario.cs" />
+    <Compile Remove="Migrations\20200206154405_AdicionarColunaAdminUsuario.Designer.cs" />
+    <Compile Remove="Migrations\20200411012827_CargaFormaPagamento.cs" />
+    <Compile Remove="Migrations\20200411012827_CargaFormaPagamento.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.0" />

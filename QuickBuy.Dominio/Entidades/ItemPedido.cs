@@ -9,6 +9,7 @@ namespace QuickBuy.Dominio.Entidades
         public int ID { get; set; }
         public int ProdutoId { get; set; }
         public int Quantidade { get; set; }
+        public virtual Produto Produto { get; set; }
 
         public override void Validate()
         {

@@ -1,1 +1,1 @@
-{"version":3,"file":"Pedido.js","sourceRoot":"","sources":["Pedido.ts"],"names":[],"mappings":";;AAEA;IAaI;QACI,IAAI,CAAC,UAAU,GAAG,IAAI,IAAI,EAAE,CAAC;QAC7B,IAAI,CAAC,UAAU,GAAG,EAAE,CAAC;IACzB,CAAC;IACL,aAAC;AAAD,CAAC,AAjBD,IAiBC;AAjBY,wBAAM"}
+{"version":3,"file":"Pedido.js","sourceRoot":"","sources":["Pedido.ts"],"names":[],"mappings":";;;AACA,qCAAoC;AAEpC;IAcE;QACE,IAAI,CAAC,UAAU,GAAG,IAAI,IAAI,EAAE,CAAC;QAC7B,IAAI,CAAC,UAAU,GAAG,EAAE,CAAC;QACrB,IAAI,CAAC,OAAO,GAAG,IAAI,iBAAO,EAAE,CAAC;IAC/B,CAAC;IACH,aAAC;AAAD,CAAC,AAnBD,IAmBC;AAnBY,wBAAM"}

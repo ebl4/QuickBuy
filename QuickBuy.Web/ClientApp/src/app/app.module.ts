@@ -23,6 +23,7 @@ import { LoginComponent } from './usuario/login/login.component';
 import { UsuarioServico } from './servicos/usuario/usuario.servico';
 import { ProdutoServico } from './servicos/produto/produto.servico';
 import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
+import { LojaPedidosComponent } from './loja/pedidos/loja.pedidos.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.co
     LojaPesquisaComponent,
     LojaProdutoComponent,
     LojaEfetivarComponent,
-    LojaCompraRealizadaComponent
+    LojaCompraRealizadaComponent,
+    LojaPedidosComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -55,6 +57,7 @@ import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.co
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
       { path: 'pesquisar-produto', component: PesquisaProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'loja-produto', component: LojaProdutoComponent },
+      { path: 'loja-pedidos', component: LojaPedidosComponent },
       { path: 'loja-efetivar', component: LojaEfetivarComponent },
       { path: 'compra-realizada-sucesso', component: LojaCompraRealizadaComponent }
     ])

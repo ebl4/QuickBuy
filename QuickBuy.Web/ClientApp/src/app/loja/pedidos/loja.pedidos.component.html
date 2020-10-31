@@ -1,0 +1,14 @@
+<div *ngIf="!pedidos">Listando todos os pedidos..</div>
+
+<div class="container" *ngIf="pedidos">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let p of pedidos">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="h5">{{p.dataPedido}}</h5>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>

@@ -13,6 +13,7 @@ using QuickBuy.Repositorio.Contexto;
 using QuickBuy.Repositorio.Repositorios;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 namespace QuickBuy.Web
 {
@@ -69,14 +70,15 @@ namespace QuickBuy.Web
             //Defining access to request context
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            var connectionString = Configuration.GetConnectionString("QuickBuyDB");
-            services.AddDbContext<QuickBuyContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, 
+            var connectionString = Configuration.GetConnectionString("QuickBuyDBMSSQL");
+            services.AddDbContext<QuickBuyContexto>(option => option.UseLazyLoadingProxies().UseSqlServer(connectionString, 
                                                                             m => m.MigrationsAssembly("QuickBuy.Repositorio")));
 
             //Adding implementation scope to Repository interfaces
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
+            services.AddScoped<IImagemRepositorio, ImagemRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -128,8 +130,8 @@ namespace QuickBuy.Web
 
                 if (env.IsDevelopment())
                 {
-                    //spa.UseAngularCliServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
+                    spa.UseAngularCliServer(npmScript: "start");
+                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
                 }
             });
         }
