@@ -1,0 +1,31 @@
+<h1 class="h4-titulo">Cadastro de Imagens</h1>
+<label class="sr-only" for="inputNome">Nome</label>
+<input type="text"
+       class="form-control mb-2 col-md-4"
+       placeholder="Nome da imagem"
+       [ngClass]="{
+       'is-invalid': nome.invalid,
+       'is-valid': nome.valid
+       }"
+       [(ngModel)]="imagem.nome"
+       #nome="ngModel"
+       required />
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputFileAddon">Upload</span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputFile" aria-describedby="inputFileAddon" (change)="inputChange($event.target.files)"/>
+    <label class="custom-file-label" for="inputFile">Escolha uma imagem</label>
+  </div>
+</div>
+
+<div class="form-inline">
+  <button class="btn btn-primary" type="button" (click)="cadastrar()">
+    <span class="spinner-border spinner-border-sm" *ngIf="ativarSpinner"></span>
+    Salvar
+  </button>
+  <button class="btn btn-secondary" [routerLink]="['/']">Cancelar</button>
+</div>
+

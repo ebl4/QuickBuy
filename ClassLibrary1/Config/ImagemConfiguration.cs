@@ -16,6 +16,10 @@ namespace QuickBuy.Repositorio.Config
             builder
                 .Property(p => p.Image)
                 .IsRequired();
+
+            builder
+                .Property(p => p.Nome)
+                .IsRequired();
         }
     }
 }

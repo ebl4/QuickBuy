@@ -35,12 +35,14 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
+    <None Remove="ClientApp\src\app\imagem\imagem.component.ts" />
     <None Remove="ClientApp\src\app\loja\carrinho-compra\loja.carrinho.compra.ts" />
     <None Remove="ClientApp\src\app\loja\efetivar\loja.compra.realizada.component.ts" />
     <None Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.ts" />
     <None Remove="ClientApp\src\app\loja\pedidos\loja.pedidos.component.ts" />
     <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
     <None Remove="ClientApp\src\app\loja\produto\loja.produto.component.ts" />
+    <None Remove="ClientApp\src\app\modelo\imagem.ts" />
     <None Remove="ClientApp\src\app\modelo\itemPedido.ts" />
     <None Remove="ClientApp\src\app\modelo\Pedido.ts" />
     <None Remove="ClientApp\src\app\modelo\Produto.ts" />
@@ -67,12 +69,14 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\imagem\imagem.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\loja\carrinho-compra\loja.carrinho.compra.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\loja\efetivar\loja.compra.realizada.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\loja\efetivar\loja.efetivar.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\loja\pedidos\loja.pedidos.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\loja\produto\loja.produto.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\modelo\imagem.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\modelo\itemPedido.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\modelo\pedido.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\modelo\produto.ts" />
