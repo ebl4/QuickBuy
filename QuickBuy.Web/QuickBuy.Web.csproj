@@ -58,12 +58,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\QuickBuy.Repositorio.csproj" />
   </ItemGroup>
 
@@ -121,6 +115,6 @@
     </ItemGroup>
   </Target>
 
-  <ProjectExtensions><VisualStudio><UserProperties config_1json__JsonSchema="http://json.schemastore.org/appsettings" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -10,9 +10,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBuy.Web", "QuickBuy.Web\QuickBuy.Web.csproj", "{3223FDA6-E230-4550-93EC-261F471A0FDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2BC9F1B8-25AB-4375-8A80-5F2FDBD8833A}"
-	ProjectSection(SolutionItems) = preProject
-		config.txt = config.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
